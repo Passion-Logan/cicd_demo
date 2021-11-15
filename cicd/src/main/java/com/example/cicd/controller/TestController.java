@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @lastUpdateTime 2021/11/12
  */
 @RestController
-@RequestMapping("test")
 public class TestController {
 
-    @GetMapping("hello")
+    @GetMapping("/")
     public String test() {
         return "hello dev";
     }
