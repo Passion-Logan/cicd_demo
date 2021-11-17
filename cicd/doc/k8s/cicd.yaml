@@ -1,22 +1,15 @@
 apiVersion: v1
-kind: ReplicationController
+kind: Pod
 metadata:
   name: helloworld
   namespace: default
   labels:
     app: helloworld
+  annotations:
+    imageregistry: "http://127.0.0.1:5000/"
 spec:
-  replicas: 1
-  selector:
-    app: helloworld
-  template:
-    metadata:
-      labels:
-        app: helloworld
-    spec:
-      containers:
-      - name: helloworld
-        image: 127.0.0.1:5000/demo
-        imagePullPolicy: IfNotPresent
-        ports:
-          - containerPort: 8080
+  containers:
+  - name: helloworld
+    image: demo
+    ports:
+      - containerPort: 8080
